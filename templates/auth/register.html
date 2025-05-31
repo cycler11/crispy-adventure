@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Регистрация нового пользователя</h2>
+<form method="POST" action="{{ url_for('auth.register') }}">
+    <div class="mb-3">
+        <label for="username" class="form-label">Имя пользователя</label>
+        <input type="text" class="form-control" id="username" name="username" required autofocus>
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Пароль</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+    </div>
+    <div class="mb-3">
+        <label for="role" class="form-label">Роль</label>
+        <select class="form-select" id="role" name="role" required>
+            <option value="admin">Администратор</option>
+            <option value="librarian">Библиотекарь</option>
+            <option value="reader">Читатель</option>
+            <option value="analyst">Аналитик</option>
+            <option value="guest">Гость</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-success">Создать пользователя</button>
+</form>
+{% endblock %}
